@@ -9,7 +9,7 @@ public class ExitCommand extends Command {
 
     public static final String MESSAGE_USAGE = COMMAND_WORD + ":\n" + "Exits the program.\n\t"
             + "Example: " + COMMAND_WORD;
-    public static final String MESSAGE_EXIT_ACKNOWEDGEMENT = "Exiting Address Book as requested ...";
+    public static final String MESSAGE_EXIT_ACKNOWEDGEMENT = "Are you sure you want to exit? Y/N";
 
     @Override
     public CommandResult execute() {

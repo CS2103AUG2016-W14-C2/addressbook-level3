@@ -40,15 +40,29 @@ public class MainWindow {
     @FXML
     private TextField commandInput;
 
+    private boolean exitCom = false;
 
     @FXML
     void onCommand(ActionEvent event) {
+
+        if (exitCom) {
+            String answer = commandInput.getText();
+            answer = answer.toLowerCase();
+            if (answer.equals("y")) {
+                try {
+                    exitApp();
+                } catch (Exception e) {
+                    display(e.getMessage());
+                    throw new RuntimeException(e);
+                }
+            }
+            exitCom = false;
+        }
         try {
             String userCommandText = commandInput.getText();
             CommandResult result = logic.execute(userCommandText);
             if(isExitCommand(result)){
-                exitApp();
-                return;
+                exitCom = true;
             }
             displayResult(result);
             clearCommandInput();
