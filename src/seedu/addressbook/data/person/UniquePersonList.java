@@ -6,7 +6,7 @@ import seedu.addressbook.data.exception.DuplicateDataException;
 import java.util.*;
 
 /**
- * A list of persons. Does not allow null elements or duplicates.
+ * A list of persons sorted by names. Does not allow null elements or duplicates.
  *
  * @see Person#equals(Object)
  * @see Utils#elementsAreUnique(Collection)
@@ -71,6 +71,7 @@ public class UniquePersonList implements Iterable<Person> {
      * Any changes to the internal list/elements are immediately visible in the returned list.
      */
     public List<ReadOnlyPerson> immutableListView() {
+    	Collections.sort(internalList);
         return Collections.unmodifiableList(internalList);
     }
 
