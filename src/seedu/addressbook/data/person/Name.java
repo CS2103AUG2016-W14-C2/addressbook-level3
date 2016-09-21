@@ -60,5 +60,17 @@ public class Name {
     public int hashCode() {
         return fullName.hashCode();
     }
+    
+    
+	public boolean isSimilar(String nameToCompare) {
+
+		String[] splitString = this.fullName.split("\\s+");
+		for (String split : splitString) {
+			if (nameToCompare.toLowerCase().contains(split.toLowerCase())) {
+				return true;
+			}
+		}
+		return false;
+	}
 
 }
